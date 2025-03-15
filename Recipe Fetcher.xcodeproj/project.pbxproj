@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D51F1502D8618E500671FD5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4D51F14F2D8618E500671FD5 /* README.md */; };
 		4D9476652D81C2D600EC92F6 /* Model in Frameworks */ = {isa = PBXBuildFile; productRef = 4D9476642D81C2D600EC92F6 /* Model */; };
 		4D9476672D81C2D600EC92F6 /* Network in Frameworks */ = {isa = PBXBuildFile; productRef = 4D9476662D81C2D600EC92F6 /* Network */; };
 		4D9476692D81C2D600EC92F6 /* RecipeApi in Frameworks */ = {isa = PBXBuildFile; productRef = 4D9476682D81C2D600EC92F6 /* RecipeApi */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D51F14F2D8618E500671FD5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4D61221D2D81C19500D5EF46 /* Recipe Fetcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe Fetcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D61222B2D81C19600D5EF46 /* Recipe FetcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Recipe FetcherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6122352D81C19600D5EF46 /* Recipe FetcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Recipe FetcherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,6 +112,7 @@
 		4D6122142D81C19500D5EF46 = {
 			isa = PBXGroup;
 			children = (
+				4D51F14F2D8618E500671FD5 /* README.md */,
 				4D61221F2D81C19500D5EF46 /* Recipe Fetcher */,
 				4D61222E2D81C19600D5EF46 /* Recipe FetcherTests */,
 				4D6122382D81C19600D5EF46 /* Recipe FetcherUITests */,
@@ -262,6 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D51F1502D8618E500671FD5 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
