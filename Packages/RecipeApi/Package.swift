@@ -13,8 +13,10 @@ let package = Package(
             targets: ["RecipeApi"]),
     ],
     dependencies: [
+        .package(path: "../Core"),
         .package(path: "../Network"),
         .package(path: "../Model"),
+        .package(path: "../TestUtilities")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,8 +24,10 @@ let package = Package(
         .target(
             name: "RecipeApi",
             dependencies: [
+                "Core",
                 "Network",
-                "Model"
+                "Model",
+                "TestUtilities"
             ]
         ),
         .testTarget(
