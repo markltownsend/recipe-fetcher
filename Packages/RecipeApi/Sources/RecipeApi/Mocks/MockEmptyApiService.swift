@@ -10,8 +10,9 @@ import Model
 import TestUtilities
 
 // MARK: - MockApiService for empty list
-final class MockEmptyApiService: NetworkService {
-    func fetchAll() async throws -> [Recipe] {
+public final class MockEmptyApiService: NetworkService {
+    public init() {}
+    public func fetchAll() async throws -> [Recipe] {
         let jsonString = TestHelpers.loadJSONString(fromFile: TestHelpers.recipesEmptyFileName)
         if let remoteData = jsonString.data(using: .utf8) {
             let recipeContainer: RecipeContainer = try decode(remoteData)
