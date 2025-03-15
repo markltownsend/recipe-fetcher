@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Model
+import Core
 
 struct RecipesScreen: View {
     @StateObject private var viewModel = RecipesViewModel()
@@ -22,7 +23,7 @@ struct RecipesScreen: View {
                         .redacted(reason: viewModel.isLoading ? .placeholder : [])
                     }
                 } else if viewModel.recipes.isEmpty {
-                    Text("No recipes found")
+                    ContentUnavailableView()
                 } else {
                     List(Array(viewModel.cuisines), id: \.self) { cuisine in
                         Section {
