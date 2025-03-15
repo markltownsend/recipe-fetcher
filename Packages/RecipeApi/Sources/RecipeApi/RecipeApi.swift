@@ -17,7 +17,8 @@ public struct RecipeApi: NetworkService {
 
         switch httpResponse.statusCode {
         case 200:
-            return try JSONDecoder().decode(RecipeContainer.self, from: data).recipes
+            let recipeContainer: RecipeContainer = try decode(data)
+            return recipeContainer.recipes
         case 404:
             throw NetworkError.notFound
         default:

@@ -12,7 +12,12 @@ import TestUtilities
 // MARK: - MockApiService for empty list
 final class MockEmptyApiService: NetworkService {
     func fetchAll() async throws -> [Recipe] {
-        let remoteData: RecipeContainer = try TestHelpers.createRemoteData(fromFile: TestHelpers.recipesEmptyFileName)
-        return remoteData.recipes
+        let jsonString = TestHelpers.loadJSONString(fromFile: TestHelpers.recipesEmptyFileName)
+        if let remoteData = jsonString.data(using: .utf8) {
+            let recipeContainer: RecipeContainer = try decode(remoteData)
+            return recipeContainer.recipes
+        } else {
+            throw NetworkError.badData
+        }
     }
 }

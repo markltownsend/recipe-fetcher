@@ -12,9 +12,12 @@ import TestUtilities
 // MARK: - MockApiService for malformed service
 final class MockMalformedApiService: NetworkService {
     func fetchAll() async throws -> [Recipe] {
-        let remoteData: RecipeContainer = try TestHelpers.createRemoteData(
-            fromFile: TestHelpers.recipesMalformedFileName
-        )
-        return remoteData.recipes
+        let jsonString = TestHelpers.loadJSONString(fromFile: TestHelpers.recipesMalformedFileName)
+        if let remoteData = jsonString.data(using: .utf8) {
+            let recipeContainer: RecipeContainer = try decode(remoteData)
+            return recipeContainer.recipes
+        } else {
+            throw NetworkError.badData
+        }
     }
 }

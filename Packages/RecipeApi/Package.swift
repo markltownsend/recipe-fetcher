@@ -32,7 +32,10 @@ let package = Package(
         ),
         .testTarget(
             name: "RecipeApiTests",
-            dependencies: ["RecipeApi"]
+            dependencies: [
+                "RecipeApi",
+                "TestUtilities"
+            ]
         ),
     ]
 )
