@@ -8,11 +8,11 @@ public struct RecipeContainer: Decodable {
 public struct Recipe: Identifiable, Sendable {
     public let cuisine: String
     public let name: String
-    public let photoUrlLarge: URL
-    public let photoUrlSmall: URL
+    public let photoUrlLarge: String
+    public let photoUrlSmall: String
     public let id: String
-    public let sourceUrl: URL?
-    public let youTubeUrl: URL?
+    public let sourceUrl: String?
+    public let youTubeUrl: String?
 
     enum CodingKeys: String, CodingKey {
         case cuisine
@@ -30,11 +30,11 @@ extension Recipe: Decodable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         cuisine = try container.decode(String.self, forKey: .cuisine)
         name = try container.decode(String.self, forKey: .name)
-        photoUrlLarge = try container.decode(URL.self, forKey: .photoUrlLarge)
-        photoUrlSmall = try container.decode(URL.self, forKey: .photoUrlSmall)
+        photoUrlLarge = try container.decode(String.self, forKey: .photoUrlLarge)
+        photoUrlSmall = try container.decode(String.self, forKey: .photoUrlSmall)
         id = try container.decode(String.self, forKey: .id)
-        sourceUrl = try container.decodeIfPresent(URL.self, forKey: .sourceUrl)
-        youTubeUrl = try container.decodeIfPresent(URL.self, forKey: .youTubeUrl)
+        sourceUrl = try container.decodeIfPresent(String.self, forKey: .sourceUrl)
+        youTubeUrl = try container.decodeIfPresent(String.self, forKey: .youTubeUrl)
     }
 }
 
@@ -57,34 +57,14 @@ extension Recipe: Encodable {
 
 extension Recipe {
     public static let preview: [Recipe] = {
-        [
-            Recipe(
-                cuisine: "American",
-                name: "Steak",
-                photoUrlLarge: URL(string: "https://baconmockup.com/300/200")!,
-                photoUrlSmall: URL(string: "https://baconmockup.com/50/50")!,
-                id: UUID().uuidString,
-                sourceUrl: nil,
-                youTubeUrl: nil
-            ),
-            Recipe(
-                cuisine: "Chinese",
-                name: "Chow Mein",
-                photoUrlLarge: URL(string: "https://baconmockup.com/300/200")!,
-                photoUrlSmall: URL(string: "https://baconmockup.com/50/50")!,
-                id: UUID().uuidString,
-                sourceUrl: nil,
-                youTubeUrl: nil
-            ),
-            Recipe(
-                cuisine: "Mexican",
-                name: "Burrito",
-                photoUrlLarge: URL(string: "https://baconmockup.com/300/200")!,
-                photoUrlSmall: URL(string: "https://baconmockup.com/50/50")!,
-                id: UUID().uuidString,
-                sourceUrl: nil,
-                youTubeUrl: nil
-            )
-        ]
+        Array(repeating: Recipe(
+            cuisine: "American",
+            name: "Steak",
+            photoUrlLarge: "",
+            photoUrlSmall: "",
+            id: UUID().uuidString,
+            sourceUrl: "https://www.nyonyacooking.com/recipes/apam-balik~SJ5WuvsDf9WQ",
+            youTubeUrl: "https://www.youtube.com/watch?v=6R8ffRRJcrg"
+        ), count: 20)
     }()
 }
