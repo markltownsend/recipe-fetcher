@@ -1,0 +1,51 @@
+{
+  "configurations" : [
+    {
+      "id" : "F2A1F230-7CF9-4E91-8A91-2E6261042CFF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Recipe Fetcher.xcodeproj",
+      "identifier" : "4D61221C2D81C19500D5EF46",
+      "name" : "Recipe Fetcher"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Recipe Fetcher.xcodeproj",
+        "identifier" : "4D61222A2D81C19600D5EF46",
+        "name" : "Recipe FetcherTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Recipe Fetcher.xcodeproj",
+        "identifier" : "4D6122342D81C19600D5EF46",
+        "name" : "Recipe FetcherUITests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/Core",
+        "identifier" : "CoreTests",
+        "name" : "CoreTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/RecipeApi",
+        "identifier" : "RecipeApiTests",
+        "name" : "RecipeApiTests"
+      }
+    }
+  ],
+  "version" : 1
+}
