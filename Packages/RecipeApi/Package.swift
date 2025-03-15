@@ -24,8 +24,7 @@ let package = Package(
             dependencies: [
                 "Network",
                 "Model"
-            ],
-            
+            ]
         ),
         .testTarget(
             name: "RecipeApiTests",
