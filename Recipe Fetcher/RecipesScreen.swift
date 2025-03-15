@@ -40,11 +40,6 @@ struct RecipesScreen: View {
             }
             .listSectionSeparator(.hidden)
             .listStyle(.plain)
-            .searchable(
-                text: $viewModel.searchText,
-                placement: .navigationBarDrawer(displayMode: .always),
-                prompt: "Find a recipe"
-            )
             .navigationTitle(Text("Recipes"))
             .task {
                 await viewModel.fetchRecipes()

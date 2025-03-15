@@ -20,7 +20,6 @@ final class RecipesViewModel: ObservableObject {
     @Published var currentError: (any Error)? = nil
     @Published var isShowingErrorAlert: Bool = false
     @Published var isLoading: Bool = false
-    @Published var searchText: String = ""
     @Published var cuisines: [String] = []
 
     private var recipesByCuisine: [String: [Recipe]] = [:]

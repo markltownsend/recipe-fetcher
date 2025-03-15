@@ -11,6 +11,8 @@ import Core
 struct RecipeRowView: View {
     let recipe: Recipe
 
+    @State private var safariViewURL: URL?
+
     var body: some View {
         HStack {
             FetchImage(url: URL(string: recipe.photoUrlSmall))
@@ -28,6 +30,11 @@ struct RecipeRowView: View {
 
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            .fullScreenCover(item: $safariViewURL, onDismiss: { safariViewURL = nil }) { url in
+                SafariControllerView(url: url)
+                    .ignoresSafeArea()
+            }
+
         }
     }
 
@@ -36,7 +43,7 @@ struct RecipeRowView: View {
         HStack {
             if let sourceUrl = recipe.sourceUrl, let url = URL(string: sourceUrl) {
                 Button {
-
+                    safariViewURL = url
                 } label: {
                     Label {
                         Text("Open Recipe")
@@ -52,7 +59,7 @@ struct RecipeRowView: View {
 
             if let youTubeUrl = recipe.youTubeUrl, let url = URL(string: youTubeUrl) {
                 Button {
-
+                    safariViewURL = url
                 } label: {
                     Label {
                         Text("Watch Video")
@@ -70,4 +77,8 @@ struct RecipeRowView: View {
 
 #Preview {
     RecipeRowView(recipe: Recipe.preview.first!)
+}
+
+extension URL: @retroactive Identifiable {
+    public var id: String { absoluteString }
 }
