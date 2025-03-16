@@ -19,7 +19,10 @@ public struct SafariControllerView: UIViewControllerRepresentable {
     public func makeUIViewController(context: Context) -> SFSafariViewController {
         let configuration = SFSafariViewController.Configuration()
         configuration.entersReaderIfAvailable = true
-        return SFSafariViewController(url: url, configuration: configuration)
+        let viewController = SFSafariViewController(url: url, configuration: configuration)
+        viewController.preferredBarTintColor = .tintColor
+        viewController.preferredControlTintColor = UIColor(named: "ControlTintColor")!
+        return viewController
     }
     
     public func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {

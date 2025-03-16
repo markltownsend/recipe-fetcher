@@ -17,7 +17,8 @@ struct RecipeRowView: View {
         HStack {
             FetchImage(url: URL(string: recipe.photoUrlSmall))
                 .frame(width: 150, height: 150)
-                .clipShape(RoundedRectangle(cornerRadius: 5.0))
+                .clipShape(RoundedRectangle(cornerRadius: 10.0))
+                .overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.accentColor, lineWidth: 1))
 
             VStack(alignment: .leading) {
                 Text(recipe.name)
@@ -50,11 +51,12 @@ struct RecipeRowView: View {
                     } icon: {
                         Image(systemName: "frying.pan")
                             .font(.headline)
+                            .foregroundStyle(Color.controlTint)
 
                     }
                     .labelStyle(.iconOnly)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
             }
 
             if let youTubeUrl = recipe.youTubeUrl, let url = URL(string: youTubeUrl) {
@@ -66,10 +68,11 @@ struct RecipeRowView: View {
                     } icon: {
                         Image(systemName: "play.tv")
                             .font(.headline)
+                            .foregroundStyle(Color.controlTint)
                     }
                     .labelStyle(.iconOnly)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
             }
         }
     }
