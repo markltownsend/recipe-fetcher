@@ -9,6 +9,7 @@ import Foundation
 import Testing
 @testable import Core
 
+@Suite("Image Loader Tests", .serialized)
 struct ImageLoaderTests {
     let imageLoader: ImageLoader
 
@@ -16,10 +17,12 @@ struct ImageLoaderTests {
         imageLoader = ImageLoader(UserDefaults(suiteName: "ImageCacheTests"))
     }
 
-    @Test("Load Image", arguments: [
+    @Test("Load Image", .serialized, arguments: [
         URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/b9ab0071-b281-4bee-b361-ec340d405320/large.jpg")!,
         URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/535dfe4e-5d61-4db6-ba8f-7a27b1214f5d/large.jpg")!,
-        URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/535dfe4e-5d61-4db6-ba8f-7a27b1214f5d/small.jpg")!
+        URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/535dfe4e-5d61-4db6-ba8f-7a27b1214f5d/large.jpg")!,
+        URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/535dfe4e-5d61-4db6-ba8f-7a27b1214f5d/small.jpg")!,
+        URL(string: "https://d3jbb8n5wk0qxi.cloudfront.net/photos/535dfe4e-5d61-4db6-ba8f-7a27b1214f5d/small.jpg")!,
     ])
     func loadImage(_ url: URL) async throws {
         let uiImage = try #require(try await imageLoader.loadImage(url: url))
