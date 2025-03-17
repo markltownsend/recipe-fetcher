@@ -2,7 +2,8 @@
 
 | Screenshot | Video |
 | ----- | ----- |
-| !["Screenshot"](Media/Recipe-Fetcher-screenshot.png) | !["Video"](Media/Recipe-Fetcher-video.mp4) |
+| ![Recipe-Fetcher-screenshot](https://github.com/user-attachments/assets/18080f10-0b37-4e79-b054-7a20e87573f4) | ![Video](https://github.com/user-attachments/assets/be0b9462-2cef-4e26-b25c-65212a86cac6) |
+
 
 ### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 
@@ -13,6 +14,3 @@
 ### Weakest Part of the Project: What do you think is the weakest part of your project?
 
 ### Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
-
-
-[def]: Media/Recipe-Fetcher-video.mp4
