@@ -4,12 +4,18 @@ import Network
 import Model
 
 public struct RecipeApi: NetworkService {
-    public init() {}
-    
+    public let session: URLSession
+    public let decoder: JSONDecoder
+
+    public init(session: URLSession = URLSession.shared,
+                decoder: JSONDecoder = JSONDecoder()) {
+        self.session = session
+        self.decoder = decoder
+    }
+
     public func fetchAll() async throws -> [Recipe] {
-        let urlSession = URLSession.shared
         let urlRequest = URLRequest(url: Endpoint.recipes)
-        let (data, response) = try await urlSession.data(for: urlRequest)
+        let (data, response) = try await session.data(for: urlRequest)
 
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkError.badResponse

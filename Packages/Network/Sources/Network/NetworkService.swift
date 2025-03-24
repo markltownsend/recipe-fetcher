@@ -2,6 +2,9 @@
 import Foundation
 
 public protocol NetworkService {
+    var session: URLSession { get }
+    var decoder: JSONDecoder { get }
+
     associatedtype T: Decodable
     
     func fetchAll() async throws -> [T]
@@ -10,6 +13,6 @@ public protocol NetworkService {
 
 extension NetworkService {
     public func decode<T: Decodable>(_ data: Data) throws -> T {
-        return try JSONDecoder().decode(T.self, from: data)
+        return try decoder.decode(T.self, from: data)
     }
 }
