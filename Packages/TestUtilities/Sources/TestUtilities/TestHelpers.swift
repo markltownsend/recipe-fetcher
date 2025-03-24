@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Testing
 
 public enum TestHelpers {
     public static let recipesFileName = "recipes"
@@ -24,17 +25,27 @@ public enum TestHelpers {
     }
 
     public static func loadJSONString(fromFile fileName: String, in bundle: Bundle? = nil) -> String {
-        let testBundle = bundle ?? Bundle.module
-        guard let url = testBundle.url(forResource: fileName, withExtension: "json") else {
-            fatalError("Can't find file with name \(fileName)")
-        }
+        let data = loadJSONData(fromFile: fileName, in: bundle)
 
-        guard let data = try? Data(contentsOf: url),
-              let jsonString = String(data: data, encoding: .utf8)
+        guard let jsonString = String(data: data, encoding: .utf8)
         else {
             fatalError("Can't convert data to string")
         }
 
         return jsonString
+    }
+
+    public static func loadJSONData(fromFile fileName: String, in bundle: Bundle? = nil) -> Data {
+        let testBundle = bundle ?? Bundle.module
+        guard let url = testBundle.url(forResource: fileName, withExtension: "json") else {
+            fatalError("Can't find file with name \(fileName)")
+        }
+
+        do {
+            let data = try Data(contentsOf: url)
+            return data
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
 }

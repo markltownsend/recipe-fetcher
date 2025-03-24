@@ -14,7 +14,15 @@ import SwiftUI
 
 // MARK - MockApiService for getting all recipes
 public final class MockApiService: NetworkService {
-    public init() {}
+    public var session: URLSession {
+        URLSession.shared
+    }
+
+    public var decoder: JSONDecoder {
+        JSONDecoder()
+    }
+
+    public init() { }
     
     public func fetchAll() async throws -> [Recipe] {
         let jsonString = TestHelpers.loadJSONString(fromFile: TestHelpers.recipesFileName)
